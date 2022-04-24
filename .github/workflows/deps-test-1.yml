@@ -21,32 +21,14 @@ jobs:
         with:
           node-version: '14'
   
-#      - name: Cache npm dependencies
-#        id: cache-node_modules
-#        uses: actions/cache@v2
-#        with:
-#          path: ./node_modules
-#          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
-#      - name: Cache Cypress dependencies
-#        id: cache-cypress
-#        uses: actions/cache@v2
-#        with:
-#          path: ~/.cache/Cypress
-#          key: cypress-cache-v2-${{ runner.os }}-${{
-#            hashFiles('**/package-lock.json') }}
+      - name: Cache npm dependencies
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
       - name: Setup .npmrc
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PA_TOKEN }}" >> ~/.npmrc
 
-#      - name: Install dependencies
-#        if: steps.cache-node_modules.outputs.cache-hit != 'true'
-#        run: npm ci
-#      - name: install ncc
-#       run: sudo apt install ncc
-        
-#      - name: Run build
-#        run: npm run build
 
-#      - name: Run tests and coverage
-#        run: npm run test:coverage
