@@ -43,7 +43,7 @@ jobs:
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci
       - name: install ncc
-        run: apt install ncc
+        run: sudo apt install ncc
         
       - name: Run build
         run: npm run build
