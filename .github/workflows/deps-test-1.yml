@@ -39,14 +39,14 @@ jobs:
       - name: Setup .npmrc
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PA_TOKEN }}" >> ~/.npmrc
 
-      - name: Install dependencies
-        if: steps.cache-node_modules.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: install ncc
-        run: sudo apt install ncc
+#      - name: Install dependencies
+#        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+#        run: npm ci
+#      - name: install ncc
+#       run: sudo apt install ncc
         
-      - name: Run build
-        run: npm run build
+#      - name: Run build
+#        run: npm run build
 
       - name: Run tests and coverage
         run: npm run test:coverage
